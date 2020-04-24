@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="v8" class="com.letchick.bean.V8" scope="prototype" />
+    <bean id="diesel" class="com.letchick.bean.Diesel" scope="prototype"/>
+
+    <bean id="ladaKalina" class="com.letchick.bean.Car"  autowire="byName">
+        <property name="vin" value="XTA464567867865456"/>
+    </bean>
+
+    <bean id="cayene" class="com.letchick.bean.Car" autowire="byName">
+        <property name="vin" value="XTA415655465784564"/>
+    </bean>
+
+    <!--     Error, more than one bean with type engine
+       <bean id="hammer" class="com.letchick.bean.Car" autowire="byType">
+           <property name="vin" value="XTA41565546111111"/>
+       </bean>
+       -->
+
+    <bean id="hammer" class="com.letchick.bean.Car" autowire="constructor">
+        <constructor-arg value="XTA41565546111111"/>
+    </bean>
+
+   </beans>
